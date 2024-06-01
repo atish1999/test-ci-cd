@@ -15,6 +15,7 @@
 	<description>Demo project for setting up and testing ci-cd in Spring Boot application</description>
 	<properties>
 		<java.version>17</java.version>
+		<fmt-maven-plugin-version>2.9</fmt-maven-plugin-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -57,6 +58,25 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.coveo</groupId>
+				<artifactId>fmt-maven-plugin</artifactId>
+				<version>${fmt-maven-plugin-version}</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <skipSortingImports>false</skipSortingImports>
+                    <style>google</style>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
 			</plugin>
 		</plugins>
 	</build>
